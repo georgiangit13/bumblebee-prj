@@ -1,0 +1,84 @@
+$primary: #181818;
+
+$custom-colors: (
+  "primary": $primary,
+  "secondary": #6c757d,
+  "success": #28a745,
+  "danger": #dc3545,
+  "warning": #ffc107,
+  "info": #17a2b8,
+  "light": #f8f9fa,
+  "dark": #343a40
+);
+
+@import "bootstrap/scss/bootstrap";
+
+@each $name, $color in $custom-colors {
+  .bg-#{$name} {
+    background-color: $color !important;
+  }
+  .bg-light-#{$name} {
+    background-color: rgba($color, 0.35) !important;
+  }
+
+  .text-#{$name} {
+    color: $color !important;
+  }
+  .text-light-#{$name} {
+    color: rgba($color, 0.6) !important;
+  }
+
+  .border-#{$name} {
+    border-color: $color !important;
+  }
+  .border-light-#{$name} {
+    border-color: rgba($color, 0.6) !important;
+  }
+}
+
+@each $name, $color in $custom-colors {
+  .btn-#{$name}-custom {
+    background-color: $color;
+    color: #fff;
+    border: 1px solid $color;
+    &:hover {
+      background-color: lighten($color, 35%);
+      color: lighten($color, 100%);
+    }
+    &:focus,
+    &:active {
+      background-color: lighten($color, 35%)!important;
+      color: lighten($color, 100%)!important;
+    }
+  }
+
+  .btn-outline-#{$name}-custom {
+    background-color: transparent;
+    color: $color;
+    border: 1px solid $color;
+    &:hover {
+      background-color: $color;
+      color: lighten($color, 85%);
+    }
+    &:focus,
+    &:active {
+      background-color: $color!important;
+      color: lighten($color, 85%)!important;
+    }
+  }
+
+  .btn-light-#{$name}-custom {
+    background-color: rgba($color, 0.35);
+    color: $color;
+    border: 1px solid rgba($color, 0.3);
+    &:hover {
+      background-color: rgba($color, 0.75);
+      color: darken($color, 10%);
+    }
+    &:focus,
+    &:active {
+      background-color: rgba($color, 1)!important;
+      color: lighten($color, 90%)!important;
+    }
+  }
+}
